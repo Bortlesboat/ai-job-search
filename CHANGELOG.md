@@ -15,6 +15,11 @@ per-file diff commands.
 
 ### Fixed
 
+- **`freehire-search` rejects empty `--facet` filters before requesting jobs** (#561) -
+  a bare flag (including one after a valid repeated facet), `salary_min=`, or a
+  comma-separated value list containing only whitespace now returns `BAD_ARG` and
+  exits 1 instead of silently dropping the filter and running a broader search.
+
 - **`/reset profile` now targets the headings the shipped skill files actually have**
   (`.claude/commands/reset.md` Step 3, `tests/test_reset_command.py`) - two of its Step 3
   targets had drifted. The `05-cv-templates.md` step anchored on a section beginning
