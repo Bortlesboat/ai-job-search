@@ -15,11 +15,6 @@ per-file diff commands.
 
 ### Fixed
 
-- **`freehire-search` rejects empty `--facet` filters before requesting jobs** (#561) -
-  a bare flag (including one after a valid repeated facet), `salary_min=`, or a
-  comma-separated value list containing only whitespace now returns `BAD_ARG` and
-  exits 1 instead of silently dropping the filter and running a broader search.
-
 - **`/reset profile` now targets the headings the shipped skill files actually have**
   (`.claude/commands/reset.md` Step 3, `tests/test_reset_command.py`) - two of its Step 3
   targets had drifted. The `05-cv-templates.md` step anchored on a section beginning
@@ -36,6 +31,11 @@ per-file diff commands.
   `01-candidate-profile.md` and `07-interview-prep.md` were already correct. Two new tests
   derive both checks from the shipped files, so a renamed heading fails until `/reset`
   follows it; both fail on master.
+
+- **`freehire-search` rejects empty `--facet` filters before requesting jobs** (#561) -
+  a bare flag (including one after a valid repeated facet), `salary_min=`, or a
+  comma-separated value list containing only whitespace now returns `BAD_ARG` and
+  exits 1 instead of silently dropping the filter and running a broader search.
 
 - **The `/apply` host-check test derives its installed-portal hosts from the skills tree
   instead of a hand-copied set** (#497, `tests/test_apply_host_check.py`) - `SHIPPED_PORTAL_HOSTS`
